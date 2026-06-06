@@ -98,8 +98,8 @@ class PhoneFormFieldState extends FormFieldState<PhoneNumber> {
     return TextField(
       decoration: widget.decoration.copyWith(
         errorText: errorText,
-        prefix: countryButtonForEachSlot[_CountryButtonSlot.prefix],
-        prefixIcon: countryButtonForEachSlot[_CountryButtonSlot.prefixIcon],
+        prefix: countryButtonForEachSlot[_CountryButtonSlot.prefixIcon],
+        prefixIcon: countryButtonForEachSlot[_CountryButtonSlot.prefix],
         suffix: countryButtonForEachSlot[_CountryButtonSlot.suffix],
         suffixIcon: countryButtonForEachSlot[_CountryButtonSlot.suffixIcon],
       ),
@@ -192,7 +192,7 @@ class PhoneFormFieldState extends FormFieldState<PhoneNumber> {
             isoCode: controller.value.isoCode,
             onTap: widget.enabled ? () => _selectCountry(context) : null,
             padding: _computeCountryButtonPadding(context),
-            showFlag: widget.countryButtonStyle.showFlag,
+            showFlag: false, // widget.countryButtonStyle.showFlag,
             showIsoCode: widget.countryButtonStyle.showIsoCode,
             showDialCode: widget.countryButtonStyle.showDialCode,
             showDropdownIcon: widget.countryButtonStyle.showDropdownIcon,
@@ -223,8 +223,8 @@ class PhoneFormFieldState extends FormFieldState<PhoneNumber> {
     final isLtr = Directionality.of(context) == TextDirection.ltr;
 
     EdgeInsets padding = isLtr
-        ? const EdgeInsets.fromLTRB(12, 0, 4, 0)
-        : const EdgeInsets.fromLTRB(4, 0, 12, 0);
+        ? const EdgeInsets.fromLTRB(0, 0, 4, 0)
+        : const EdgeInsets.fromLTRB(4, 0, 0, 0);
     if (userDefinedPadding != null) {
       return userDefinedPadding;
     }
